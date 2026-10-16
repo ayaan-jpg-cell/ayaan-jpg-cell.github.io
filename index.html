@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayaan Sheikh Cybersecurity</title>
+<meta name="description" content="Practical cybersecurity help for small businesses in Nashville, Hendersonville, and Sumner County.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+body { margin: 0; }
+img { max-width: 100%; }
+
+/* Layout: split hero with a sample checkup report as the hero visual, then services grid, real 4-step process, audience chips, about, contact band */
+:root {
+  --bg: #F3F6F7;
+  --surface: #FFFFFF;
+  --ink: #12202A;
+  --muted: #4E5F6B;
+  --line: #D5DEE3;
+  --accent: #1C5D86;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #E1EDF4;
+  --band: #12324A;
+  --band-ink: #EAF2F7;
+  --band-muted: #A9C0D0;
+  --high: #B23A2E;
+  --high-soft: #F8E3E0;
+  --med: #8A5A00;
+  --med-soft: #F7ECD4;
+  --low: #2E6B45;
+  --low-soft: #DFF0E5;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E171D; --surface: #15222B; --ink: #E6EEF2; --muted: #9DB0BC; --line: #26363F;
+    --accent: #6FB3DC; --accent-ink: #0B1A24; --accent-soft: #17303F;
+    --band: #102B3E; --band-ink: #EAF2F7; --band-muted: #9FB8C9;
+    --high: #F08A7E; --high-soft: #3A1F1C; --med: #E2B65C; --med-soft: #33291A; --low: #7FCB98; --low-soft: #183025;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E171D; --surface: #15222B; --ink: #E6EEF2; --muted: #9DB0BC; --line: #26363F;
+  --accent: #6FB3DC; --accent-ink: #0B1A24; --accent-soft: #17303F;
+  --band: #102B3E; --band-ink: #EAF2F7; --band-muted: #9FB8C9;
+  --high: #F08A7E; --high-soft: #3A1F1C; --med: #E2B65C; --med-soft: #33291A; --low: #7FCB98; --low-soft: #183025;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+a { color: var(--accent); }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.12; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.6rem, 3.2vw, 2.25rem); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: 1.25rem; font-weight: 700; }
+p { margin: 0; }
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Header */
+.topbar .wrap {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding-block: 20px;
+}
+.brand { display: flex; flex-direction: column; text-decoration: none; color: var(--ink); }
+.brand strong { font-family: var(--display); font-size: 1.3rem; font-weight: 800; letter-spacing: -0.01em; }
+.brand span { font-size: 0.85rem; color: var(--muted); }
+.nav { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.95rem; }
+.nav a { color: var(--ink); text-decoration: none; }
+.nav a:hover { color: var(--accent); }
+
+/* Buttons */
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 22px; border-radius: 8px; font-weight: 600; font-size: 1rem;
+  text-decoration: none; border: 2px solid var(--accent); transition: transform .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-ghost { background: transparent; color: var(--accent); }
+
+/* Hero */
+.hero .wrap {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center;
+  padding-block: 40px 72px;
+}
+.hero-copy { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.hero-copy .lede { font-size: 1.15rem; color: var(--muted); max-width: 34em; }
+
+/* Sample report card */
+.report {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 18px 40px -24px rgba(18, 32, 42, 0.45);
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  min-width: 0;
+}
+.report-head {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  padding: 16px 18px; border-bottom: 1px dashed var(--line);
+}
+.report-head b { font-weight: 500; color: var(--ink); }
+.report-head span { color: var(--muted); }
+.tag-example {
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 99px; background: var(--accent-soft); color: var(--accent);
+}
+.report ol { list-style: none; margin: 0; padding: 6px 0; }
+.report li {
+  display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: start;
+  padding: 10px 18px;
+  font-family: var(--body); font-size: 0.95rem; line-height: 1.4;
+}
+.report li + li { border-top: 1px solid var(--line); }
+.box {
+  width: 16px; height: 16px; margin-top: 3px; border: 1.5px solid var(--muted); border-radius: 3px;
+}
+.pri {
+  font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em;
+  padding: 3px 8px; border-radius: 4px; white-space: nowrap;
+}
+.pri.high { background: var(--high-soft); color: var(--high); }
+.pri.med { background: var(--med-soft); color: var(--med); }
+.pri.low { background: var(--low-soft); color: var(--low); }
+.report-foot {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 12px 18px; border-top: 1px dashed var(--line); color: var(--muted);
+}
+
+/* Sections */
+section.block .wrap { padding-block: 72px; display: flex; flex-direction: column; gap: 36px; }
+.section-head { display: flex; flex-direction: column; gap: 10px; max-width: 40em; }
+.section-head p { color: var(--muted); }
+.alt { background: var(--surface); border-block: 1px solid var(--line); }
+
+.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.service {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 26px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg);
+}
+.service p { color: var(--muted); }
+.service .basis { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); margin-top: auto; padding-top: 6px; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; counter-reset: step; }
+.steps li { display: flex; flex-direction: column; gap: 8px; padding-top: 18px; border-top: 3px solid var(--accent); counter-increment: step; }
+.steps li::before {
+  content: "Step " counter(step);
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+}
+.steps p { color: var(--muted); }
+
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.chips li { padding: 9px 16px; border-radius: 99px; border: 1px solid var(--line); background: var(--surface); font-size: 0.95rem; }
+
+.about { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 48px; align-items: start; }
+.about-copy { display: flex; flex-direction: column; gap: 16px; max-width: 38em; min-width: 0; }
+.facts { margin: 0; display: flex; flex-direction: column; gap: 16px; padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); min-width: 0; }
+.facts div { display: flex; flex-direction: column; gap: 2px; }
+.facts dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; font-weight: 500; overflow-wrap: anywhere; }
+
+/* Contact band */
+.contact { background: var(--band); color: var(--band-ink); }
+.contact .wrap { padding-block: 72px; display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+.contact p { color: var(--band-muted); max-width: 36em; font-size: 1.1rem; }
+.contact .btn-primary { background: var(--band-ink); color: var(--band); border-color: var(--band-ink); }
+
+footer .wrap { padding-block: 28px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: 0.9rem; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .about { grid-template-columns: 1fr; }
+  .hero .wrap { gap: 36px; padding-block: 24px 56px; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .services, .steps { grid-template-columns: 1fr; }
+  section.block .wrap, .contact .wrap { padding-block: 56px; }
+  .nav { gap: 14px; }
+  .service { padding: 22px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" id="top">
+      <strong>Ayaan Sheikh</strong>
+      <span>Cybersecurity for small business</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Nashville · Hendersonville · Sumner County</p>
+        <h1>Security help for small businesses without an IT department.</h1>
+        <p class="lede">I help local offices and shops lock down email, protect customer data, and train staff to spot scams. Plain-language advice, fixed prices, and a clear list of what to fix first.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/ayaansheikhofficial" target="_blank" rel="noopener">Book a free 30-minute call</a>
+          <a class="btn btn-ghost" href="#services">See services</a>
+        </div>
+      </div>
+
+      <figure class="report" aria-label="Example of a security checkup report" style="margin:0">
+        <div class="report-head">
+          <div><b>Security Checkup</b> <span>· Dental office, 6 staff</span></div>
+          <span class="tag-example">Example</span>
+        </div>
+        <ol>
+          <li><span class="box" aria-hidden="true"></span><span>Turn on multi-factor sign-in for every email account</span><span class="pri high">HIGH</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Test that backups can actually be restored</span><span class="pri high">HIGH</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Stop sharing one admin login across staff</span><span class="pri high">HIGH</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Move guest Wi-Fi off the office network</span><span class="pri med">MED</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Change the router's default password and update it</span><span class="pri med">MED</span></li>
+          <li><span class="box" aria-hidden="true"></span><span>Give the team a shared password manager</span><span class="pri low">LOW</span></li>
+        </ol>
+        <figcaption class="report-foot"><span>6 findings</span><span>3 high priority</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block alt" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Services</p>
+        <h2>What I do</h2>
+        <p>Most attacks on small businesses start with an email, a weak password, or a fake payment request. These services close those gaps first.</p>
+      </div>
+      <div class="services">
+        <article class="service">
+          <h3>Security Checkup</h3>
+          <p>A walk-through of your email accounts, passwords, backups, Wi-Fi, computers, and who has access to what. You get a short report that ranks the fixes that matter most.</p>
+          <span class="basis">Based on CISA Cyber Essentials and NIST CSF 2.0</span>
+        </article>
+        <article class="service">
+          <h3>Setup and fixes</h3>
+          <p>I turn on multi-factor sign-in, set up backups and a password manager, and tighten your Microsoft 365 or Google Workspace settings. You get written notes on everything I changed.</p>
+          <span class="basis">Microsoft 365 · Google Workspace · Routers and Wi-Fi</span>
+        </article>
+        <article class="service">
+          <h3>Staff scam training</h3>
+          <p>A 45-minute session on phishing emails, fake invoices, gift card requests, and payment scams, built around the tricks that target small offices.</p>
+          <span class="basis">In person or online · Up to 25 staff</span>
+        </article>
+        <article class="service">
+          <h3>Safe AI setup</h3>
+          <p>Using ChatGPT or similar tools at work? I help you set rules for what data goes in, choose business accounts with the right privacy settings, and train staff to use them safely.</p>
+          <span class="basis">AI use policy · Account setup · Staff guide</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Process</p>
+        <h2>How it works</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Free call</h3><p>30 minutes to talk about your business, your setup, and what worries you.</p></li>
+        <li><h3>Checkup</h3><p>I review your setup on site or remotely, always with your written permission.</p></li>
+        <li><h3>Report</h3><p>A short, plain-language report with every fix ranked by priority.</p></li>
+        <li><h3>Fixes</h3><p>Handle them yourself with my notes, or have me take care of them.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Who I help</p>
+        <h2>Small teams with no full-time IT</h2>
+        <p>Usually 1 to 25 people, often with customer or patient data that needs protecting.</p>
+      </div>
+      <ul class="chips">
+        <li>Medical and dental offices</li>
+        <li>Tax preparers and CPAs</li>
+        <li>Law offices</li>
+        <li>Real estate and insurance agencies</li>
+        <li>Retail shops and restaurants</li>
+        <li>Contractors and trades</li>
+        <li>Salons and studios</li>
+        <li>Nonprofits and churches</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="about">
+        <div class="about-copy">
+          <p class="eyebrow">About</p>
+          <h2>Hi, I'm Ayaan.</h2>
+          <p>I'm a cybersecurity graduate from Middle Tennessee State University. Before that, I spent nearly two years in hands-on tech support at a local phone and computer repair shop, fixing devices for small business owners and keeping the shop's own network running.</p>
+          <p>I've also built security labs with Splunk, Snort intrusion detection, and Active Directory. I bring that training to small offices and scale it to what you actually need. You'll always get a straight answer about what's worth your money and what isn't.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>Education</dt><dd>B.S. Cybersecurity, MTSU<br>Minor in Business Administration</dd></div>
+          <div><dt>Experience</dt><dd>Nearly 2 years of hands-on tech support</dd></div>
+          <div><dt>Based in</dt><dd>Hendersonville, TN</dd></div>
+          <div><dt>Projects</dt><dd><a href="https://github.com/ayaan-jpg-cell" target="_blank" rel="noopener">github.com/ayaan-jpg-cell</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow" style="color: var(--band-muted)">Contact</p>
+      <h2>Let's talk about your business.</h2>
+      <p>The first 30-minute call is free, with no obligation. Send me a message on LinkedIn and we'll set up a time.</p>
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/ayaansheikhofficial" target="_blank" rel="noopener">Message me on LinkedIn</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Ayaan Sheikh · Independent cybersecurity consultant</span>
+    <span>Serving Middle Tennessee</span>
+  </div>
+</footer>
+
+</body>
+</html>
